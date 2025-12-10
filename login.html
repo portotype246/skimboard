@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKIMBOARD</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('PICTURES/Surfing.png') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 35px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            max-width: 90%;
+        }
+
+        .container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 26px;
+            color: #444;
+        }
+        .container img {
+            width: 150px;
+            align-items: center;
+            margin-left: 100px;
+
+        }
+        .container label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .container input[type="text"],
+        .container input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .container button {
+            width: 100%;
+            padding: 12px;
+            background-color:rgba(31, 29, 32, 1); 
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .container button:hover {
+           background: #f18930;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            text-align: center;
+            display: none;
+            margin-bottom: 15px;
+        }
+
+        .toggle-link {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .toggle-link a {
+            color: #f18930;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .toggle-link a:hover {
+            text-decoration: underline;
+        }
+        .hero-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 12px 34px;
+    font-size: 13px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+.hero-btn:hover{
+    border: 1px solid #f18930;
+    background: #f18930;
+    transition: 1s;
+}
+.text-box{
+    width: 90%;
+
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    bottom: 10px;
+}
+
+    </style>
+</head>
+<body>
+    
+
+    <div id="login-container" class="container">
+        <img src=" PICTURES/Skim Board.jpg">
+        <h1>Login</h1>
+        <div id="error-message" class="error-message">Invalid username or password</div>
+        <label for="login-username">Username</label>
+        <input type="text" id="login-username" placeholder="Enter your username">
+
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" placeholder="Enter your password">
+
+        <button id="login-button">Login</button>
+        <div class="toggle-link">Don't have an account? <a href="#" id="show-signup">Sign up</a></div>
+    </div>
+
+    <div id="signup-container" class="container" style="display: none;">
+        <h1>Sign Up</h1>
+        <div id="signup-error-message" class="error-message">Please fill all fields correctly</div>
+        <label for="signup-username">Username</label>
+        <input type="text" id="signup-username" placeholder="Choose a username">
+
+        <label for="signup-password">Password</label>
+        <input type="password" id="signup-password" placeholder="Choose a password">
+
+        <label for="signup-confirm-password">Confirm Password</label>
+        <input type="password" id="signup-confirm-password" placeholder="Confirm your password">
+
+        <button id="signup-button">Sign Up</button>
+        <div class="toggle-link">Already have an account? <a href="#" id="show-login">Log in</a></div>
+    </div>
+
+
+    <div class="text-box">
+                    <a href="viewpage.html" class="hero-btn">Visit Us</a>
+    </div>
+
+    <script>
+        const loginContainer = document.getElementById('login-container');
+        const signupContainer = document.getElementById('signup-container');
+        const showSignupLink = document.getElementById('show-signup');
+        const showLoginLink = document.getElementById('show-login');
+        const loginButton = document.getElementById('login-button');
+        const signupButton = document.getElementById('signup-button');
+        const errorMessage = document.getElementById('error-message');
+        const signupErrorMessage = document.getElementById('signup-error-message');
+
+        // User database (for demonstration purposes only, not secure)
+        const users = {
+            user: 'pass', // Default user
+        };
+
+        showSignupLink.addEventListener('click', () => {
+            loginContainer.style.display = 'none';
+            signupContainer.style.display = 'block';
+        });
+
+        showLoginLink.addEventListener('click', () => {
+            signupContainer.style.display = 'none';
+            loginContainer.style.display = 'block';
+        });
+
+        loginButton.addEventListener('click', () => {
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+
+            if (users[username] === password) {
+                errorMessage.style.display = 'none';
+                window.location.href = 'index.html'; // Redirect to another page
+            } else {
+                errorMessage.style.display = 'block';
+            }
+        });
+
+        signupButton.addEventListener('click', () => {
+            const username = document.getElementById('signup-username').value;
+            const password = document.getElementById('signup-password').value;
+            const confirmPassword = document.getElementById('signup-confirm-password').value;
+
+            if (username && password && password === confirmPassword) {
+                if (users[username]) {
+                    signupErrorMessage.textContent = 'Username already exists';
+                    signupErrorMessage.style.display = 'block';
+                } else {
+                    users[username] = password;
+                    alert('Sign up successful!');
+                    signupErrorMessage.style.display = 'none';
+                    signupContainer.style.display = 'none';
+                    loginContainer.style.display = 'block';
+                }
+            } else {
+                signupErrorMessage.textContent = 'Please fill all fields correctly';
+                signupErrorMessage.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

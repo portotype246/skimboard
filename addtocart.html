@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKIMBOARD</title>
+    <link rel="stylesheet"href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/x-icon" href="PICTURES/SKIM BOARD.ico">
+    <section class="sub-header">
+        <nav>
+            <a href="index.html"><img src="PICTURES/Skim Board.jpg"></a>
+            <div class="nav-links" id="navLinks">
+                
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="addtocart.html">PRODUCTS</a></li>
+                    <li><a href="services.html">SERVICES</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="contact.html">CONTACT</a></li> 
+                </ul>
+            </div>
+            <div class="navbar">
+        <h1>‎</h1>
+        <!-- Checkout button placed in the navbar -->
+        <button onclick="checkout()">Checkout</button>
+    </div>
+
+        </nav> 
+        <h1>Our Products</h1>
+    </section>
+    <style>
+        /* Basic styles for the page layout */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        /* Navigation Bar */
+        .navbar {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .navbar button {
+            background-color: #e76f51;
+            color: white;
+            border: none;
+            padding: 20px 30px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: 30px;
+        }
+        .navbar button:hover {
+            background-color: #d14d3f;
+        }
+
+        /* Products Section */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        /* Styles for each product card */
+        .product {
+            background-color: white;
+            border-radius: 8px;
+            width: 200px;
+            margin: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .product h3 {
+            font-size: 18px;
+            color: #f18930;
+            margin: 10px 0;
+        }
+        .product p {
+            color: #777;
+            font-size: 14px;
+        }
+        .product .price {
+            font-weight: bold;
+            color: #f18930;
+            margin: 10px 0;
+        }
+        .product button {
+            background-color: #f18930;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .product button:hover {
+            background-color: #f18930;
+        }
+
+        /* Styles for the shopping cart */
+        .cart {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 250px;
+            position: fixed;
+            top: 190px;
+            left: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .cart h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .cart ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .cart ul li {
+            margin-bottom: 10px;
+        }
+        .cart .total {
+            font-weight: bold;
+            margin-top: 20px;
+            color: #2a9d8f;
+        }
+        
+        .bottor{
+            background-color: #f9f9f9;
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar with Checkout Button -->
+
+    <!-- Products Section -->
+    <div class="container">
+        <!-- Product 1 -->
+        <div class="product" data-id="1">
+            <img src="PICTURES/Product1.jpg" alt="Woody Board">
+            <h3>Woody Board</h3>
+            <div class="price">$30</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'Woody Board', 30)">Add to Cart</button>
+        </div>
+        <!-- Product 2 -->
+        <div class="product" data-id="2">
+            <img src="PICTURES/Product2.jpg" alt="Foam Board">
+            <h3>Foam Board</h3>
+            <div class="price">$179</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(2, 'Foam BOard', 179)">Add to Cart</button>
+        </div>
+        <!-- Product 3 -->
+        <div class="product" data-id="3">
+            <img src="PICTURES/Product3.jpg" alt="Fiber Board">
+            <h3>Fiber Board</h3>
+            <div class="price">$45</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(3, 'Fiber Board', 45)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/Tribe.jpeg">
+            <h3>Tribe Board</h3>
+            <div class="price">$20</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(4, 'Tribe Board', 20)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/oceantric.jpeg">
+            <h3>Oceantric Board</h3>
+            <div class="price">$30</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(5, 'Oceantric Board', 30)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/7.jpg" alt="Product 1">
+            <h3>Traction Pad</h3>
+            <div class="price">$25</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(6, 'Traction Pad', 25)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/8.jpg" alt="Product 1">
+            <h3>ZCS T8 Traction Pad</h3>
+            <div class="price">$25</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'ZCS T8 Traction Pad', 25)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/9.jpg" alt="Product 1">
+            <h3>ZCS T7 Traction Pad</h3>
+            <div class="price">$25</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'ZCS T7 Traction Pad', 25)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/10.jpg" alt="Product 1">
+            <h3>ZCS T6 Traction Pad</h3>
+            <div class="price">$23</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'ZCS T6 Traction Pad', 23)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/11.jpg" alt="Product 1">
+            <h3>ZCS T5 Traction Pad</h3>
+            <div class="price">$25</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'ZCS T5 Traction Pad', 25)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/12.jpg" alt="Product 1">
+            <h3>ZCS T4 Traction Pad</h3>
+            <div class="price">$25</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'ZCS T4 Traction Pad', 25)">Add to Cart</button>
+        </div>
+        <!-- Product 2 -->
+        <div class="product" data-id="2">
+            <img src="PICTURES/13.jpg" alt="Product 2">
+            <h3>ZCS T3 Traction Pad</h3>
+            <div class="price">$25</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(2, 'ZCS T3 Traction Pad', 25)">Add to Cart</button>
+        </div>
+        <!-- Product 3 -->
+        <div class="product" data-id="3">
+            <img src="PICTURES/14.jpg" alt="Product 3">
+            <h3>ZCS T2 Traction Pad</h3>
+            <div class="price">$25</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(3, 'ZCS T2 Traction Pad', 25)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/15.jpg" alt="Product 1">
+            <h3>ZCS T1 Traction Pad</h3>
+            <div class="price">$25</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'ZCS T1 Traction Pad', 25)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/17.jpg" alt="Product 1">
+            <h3>3 SET EVA ARCHBAR 4PIECES</h3>
+            <div class="price">$10</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, '3 SET EVA ARCHBAR 4PIECES', 10)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/18.jpg" alt="Product 1">
+            <h3>6 PIECES EVA ARCHBAR</h3>
+            <div class="price">$13</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, '6 PIECES EVA ARCHBAR', 13)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/19.jpg" alt="Product 1">
+            <h3>3 SET EVA ARCHBAR 2PIECES</h3>
+            <div class="price">$10</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, '3 SET EVA ARCHBAR 2PIECES', 10)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/20.jpg" alt="Product 1">
+            <h3>2 SET EVA ARCHBAR 4PIECES</h3>
+            <div class="price">$20</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, '2 SET EVA ARCHBAR 4PIECES', 20)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/21.jpg" alt="Product 1">
+            <h3>X4 EVA ARCHBAR(BLUE)</h3>
+            <div class="price">$12</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'X4 EVA ARCHBAR(BLUE)', 12)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/22.jpg" alt="Product 1">
+            <h3>X4 EVA ARCHBAR(ORANGE)</h3>
+            <div class="price">$12</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'X4 EVA ARCHBAR(ORANGE)', 12)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/23.jpg" alt="Product 1">
+            <h3>RIDE ARCHBAR</h3>
+            <div class="price">$10</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'RIDE ARCHBAR', 10)">Add to Cart</button>
+        </div>
+        <!-- Product 2 -->
+        <div class="product" data-id="2">
+            <img src="PICTURES/24.jpg" alt="Product 2">
+            <h3>EXILE ARCHBAR</h3>
+            <div class="price">$11</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(2, 'EXILE ARCHBAR', 11)">Add to Cart</button>
+        </div>
+        <!-- Product 3 -->
+        <div class="product" data-id="3">
+            <img src="PICTURES/25.jpg" alt="Product 3">
+            <h3>TRACKPAD ARCBAR 3 SET</h3>
+            <div class="price">$25</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(3, 'TRACKPAD ARCBAR 3 SET', 25)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/26.jpg" alt="Product 1">
+            <h3>TVICTORIA TRACKPAD SET</h3>
+            <div class="price">$75</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'TVICTORIA TRACKPAD SET', 75)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/27.jpg" alt="Product 1">
+            <h3>TRACTION PAD</h3>
+            <div class="price">$15</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'TRACTION PAD', 15)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/28.jpg" alt="Product 1">
+            <h3>CREATURES T1 TRACTION PAD</h3>
+            <div class="price">$20</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'CREATURES T1 TRACTION PAD', 20)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/29.jpg" alt="Product 1">
+            <h3>SKIM WAX</h3>
+            <div class="price">$11</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'SKIM WAX', 15)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/30.jpg" alt="Product 1">
+            <h3>SURF WAX</h3>
+            <div class="price">$15</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'SURF WAX', 15)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/31.jpg" alt="Product 1">
+            <h3>SKI WAX</h3>
+            <div class="price">$10</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'SKI WAX', 10)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/32.jpg" alt="Product 1">
+            <h3>CREATURES T9 TRACTION PAD</h3>
+            <div class="price">$25</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'CREATURES T9 TRACTION PAD', 25)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/33.jpg" alt="Product 1">
+            <h3>CREATURES T2 TRACTION PAD</h3>
+            <div class="price">$25</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'CREATURES T2 TRACTION PAD', 25)">Add to Cart</button>
+        </div>
+        <!-- Product 2 -->
+        <div class="product" data-id="2">
+            <img src="PICTURES/34.jpg" alt="Product 2">
+            <h3>CREATURES T3 TRACTION PAD</h>
+            <div class="price">$20</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(2, 'CREATURES T3 TRACTION PAD', 20)">Add to Cart</button>
+        </div>
+        <!-- Product 3 -->
+        <div class="product" data-id="3">
+            <img src="PICTURES/35.jpg" alt="Product 3">
+            <h3>TCREATURES T4 TRACTION PAD</h3>
+            <div class="price">$20</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(3, 'TCREATURES T4 TRACTION PAD', 20)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/36.jpg" alt="Product 1">
+            <h3>FCS T8 GTRACTION PAD</h3>
+            <div class="price">$25</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'FCS T8 GTRACTION PAD', 25)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/37.jpg" alt="Product 1">
+            <h3>CREATURES T5 TRACTION PAD</h3>
+            <div class="price">$25</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'CREATURES T5 TRACTION PAD', 25)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/38.jpg" alt="Product 1">
+            <h3>CREATURES T6 TRACTION PAD</h3>
+            <div class="price">$25</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'CREATURES T6 TRACTION PAD', 25)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/39.jpg" alt="Product 1">
+            <h3>CREATURES T7 TRACTION PAD</h3>
+            <div class="price">$25.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'CREATURES T7 TRACTION PAD', 25.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/40.jpg" alt="Product 1">
+            <h3>1 SET SURF WAX</h3>
+            <div class="price">$15</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'Product 1', 15)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/41.jpg" alt="Product 1">
+            <h3>ZAP SKIM WAX WARM</h3>
+            <div class="price">$10</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'ZAP SKIM WAX WARM', 10)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/42.jpg" alt="Product 1">
+            <h3>ZAP SKIM WAX COLD</h3>
+            <div class="price">$10</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'ZAP SKIM WAX COLD', 10)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/43.jpg" alt="Product 1">
+            <h3>ZAP SKIM WAX COLD</h3>
+            <div class="price">$10</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'ZAP SKIM WAX COLD', 10)">Add to Cart</button>
+        </div>
+        <!-- Product 2 -->
+        <div class="product" data-id="2">
+            <img src="PICTURES/44.jpg" alt="Product 2">
+            <h3>ZAP SKIM WAX TROPICAL</h3>
+            <div class="price">$10</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(2, 'ZAP SKIM WAX TROPICAL', 10)">Add to Cart</button>
+        </div>
+        <!-- Product 3 -->
+        <div class="product" data-id="3">
+            <img src="PICTURES/45.jpg" alt="Product 3">
+            <h3>NIPPON PAINT</h3>
+            <div class="price">$15</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(3, 'NIPPON PAINT', 15)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/46.jpg" alt="Product 1">
+            <h3>NIPPON PAINT GOLD</h3>
+            <div class="price">$18</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'NIPPON PAINT GOLD', 18)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/47.jpg" alt="Product 1">
+            <h3>NIPPON PAINT CREAM WHITE</h3>
+            <div class="price">$18</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'NIPPON PAINT CREAM WHITE',15)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/48.jpg" alt="Product 1">
+            <h3>NIPPON PAINT CREAM WHITE</h3>
+            <div class="price">$18</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'NIPPON PAINT CREAM WHITE', 18)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/49.jpg" alt="Product 1">
+            <h3>NIPPON PAINT CLEAR</h3>
+            <div class="price">$18</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'NIPPON PAINT CLEAR', 18)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/50.jpg" alt="Product 1">
+            <h3>NIPPON PAINT 1 SET</h3>
+            <div class="price">$60</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'NIPPON PAINT 1 SET', 60)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/51.jpg" alt="Product 1">
+            <h3>NIPPON PAINT FLUORESCENT VIOLET</h3>
+            <div class="price">$18</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'NIPPON PAINT FLUORESCENT VIOLET', 18)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/52.jpg" alt="Product 1">
+            <h3>NIPPON PAINT SMOOTH GREEN</h3>
+            <div class="price">$18</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'NIPPON PAINT SMOOTH GREEN', 18)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/53.jpg" alt="Product 1">
+            <h3>NIPPON PAINT RED</h3>
+            <div class="price">$18</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'NIPPON PAINT RED', 18)">Add to Cart</button>
+        </div>
+        <!-- Product 2 -->
+        <div class="product" data-id="2">
+            <img src="PICTURES/54.jpg" alt="Product 2">
+            <h3>NIPPON PAINT GLOSS BLACK</h3>
+            <div class="price">$18</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(2, 'NIPPON PAINT GLOSS BLACK', 18)">Add to Cart</button>
+        </div>
+        <!-- Product 3 -->
+        <div class="product" data-id="3">
+            <img src="PICTURES/55.jpg" alt="Product 3">
+            <h3>HAMMER SET TRACTPAD</h3>
+            <div class="price">$30</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(3, 'HAMMER SET TRACTPAD', 30)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/56.jpg" alt="Product 1">
+            <h3>ZAP WAX COLD PACK</h3>
+            <div class="price">$39.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'ZAP WAX COLD PACK', 39.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/57.jpg" alt="Product 1">
+            <h3>XAP WAX WARM PACK</h3>
+            <div class="price">$39.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'XAP WAX WARM PACK', 39.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/58.jpg" alt="Product 1">
+            <h3>NIPPON SKIMBOARD PACK</h3>
+            <div class="price">$39.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'NIPPON SKIMBOARD PACK', 39.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/59.jpg" alt="Product 1">
+            <h3>SET1 SKIMBOARD PACK</h3>
+            <div class="price">$49.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'SET1 SKIMBOARD PACK', 49.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/60.jpg" alt="Product 1">
+            <h3>SET2 SKIMBOARD PACK</h3>
+            <div class="price">$49.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'SET2 SKIMBOARD PACK', 49.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/61.jpg" alt="Product 1">
+            <h3>SET3 SKIMBOARD PACK</h3>
+            <div class="price">$49.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'SET3 SKIMBOARD PACK', 49.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/62.jpg" alt="Product 1">
+            <h3>STARTER PACK 1</h3>
+            <div class="price">$25.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'STARTER PACK 1', 25.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/63.jpg" alt="Product 1">
+            <h3>STARTER PACK 2</h3>
+            <div class="price">$25.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'STARTER PACK 2', 25.99)">Add to Cart</button>
+        </div>
+        <!-- Product 2 -->
+        <div class="product" data-id="2">
+            <img src="PICTURES/64.jpg" alt="Product 2">
+            <h3>STARTER PACK 3</h3>
+            <div class="price">$25.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(2, 'STARTER PACK 3', 19.99)">Add to Cart</button>
+        </div>
+        <!-- Product 3 -->
+        <div class="product" data-id="3">
+            <img src="PICTURES/65.jpg" alt="Product 3">
+            <h3>SET4 SKIMBOARD PACK</h3>
+            <div class="price">$39.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(3, 'SET4 SKIMBOARD PACK', 39.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/66.jpg" alt="Product 1">
+            <h3>SET5 SKIMBOARD PACK</h3>
+            <div class="price">$35.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'SET5 SKIMBOARD PACK', 35.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/67.jpg" alt="Product 1">
+            <h3>SET6 SKIMBOARD PACK</h3>
+            <div class="price">$35.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'SET6 SKIMBOARD PACK', 35.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/68.jpg" alt="Product 1">
+            <h3>WAVEZONE Z1 SKIMBOARD</h3>
+            <div class="price">$39.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'WAVEZONE Z1 SKIMBOARD', 39.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/69.jpg" alt="Product 1">
+            <h3>WAVEZONE Z2 SKIMBOARD</h3>
+            <div class="price">$38.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'WAVEZONE Z2 SKIMBOARD', 38.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/70.jpg" alt="Product 1">
+            <h3>SKIM PACKAGE 1</h3>
+            <div class="price">$99.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'SKIM PACKAGE 1', 99.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/71.jpg" alt="Product 1">
+            <h3>SKIM PACKAGE 2</h3>
+            <div class="price">$69.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'SKIM PACKAGE 2', 69.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/72.jpg" alt="Product 1">
+            <h3>SKIM PACKAGE 3</h3>
+            <div class="price">$45.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'SKIM PACKAGE 3', 45.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/73.jpg" alt="Product 1">
+            <h3>SKIM PACKAGE 4</h3>
+            <div class="price">$45.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'SKIM PACKAGE 4', 45.99)">Add to Cart</button>
+        </div>
+        <!-- Product 2 -->
+        <div class="product" data-id="2">
+            <img src="PICTURES/74.jpg" alt="Product 2">
+            <h3>SKIM PACKAGE 5</h3>
+            <div class="price">$49.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(2, 'SKIM PACKAGE 5', 49.99)">Add to Cart</button>
+        </div>
+        <!-- Product 3 -->
+        <div class="product" data-id="3">
+            <img src="PICTURES/75.jpg" alt="Product 3">
+            <h3>SKIM PACKAGE 6</h3>
+            <div class="price">$49.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(3, 'SKIM PACKAGE 6', 49.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/76.jpg" alt="Product 1">
+            <h3>SKIM PACKAGE 7</h3>
+            <div class="price">$45.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'SKIM PACKAGE 7', 45.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/77.jpg" alt="Product 1">
+            <h3>SKIM PACKAGE 7</h3>
+            <div class="price">$45.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'SKIM PACKAGE 7', 45.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/78.jpg" alt="Product 1">
+            <h3>MEDIUM PACKAGE 2</h3>
+            <div class="price">$45.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'MEDIUM PACKAGE 2', 45.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/79.jpg" alt="Product 1">
+            <h3>MEDIUM PACKAGE 3</h3>
+            <div class="price">$45.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'MEDIUM PACKAGE 3', 45.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/80.jpg" alt="Product 1">
+            <h3>MEDIUM PACKAGE 4</h3>
+            <div class="price">$45.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'MEDIUM PACKAGE 4', 45.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/81.jpg" alt="Product 1">
+            <h3>MEDIUM PACKAGE 5</h3>
+            <div class="price">$45.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'MEDIUM PACKAGE 4', 45.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/84.jpg" alt="Product 1">
+            <h3>1 SET OF TRIBE BOARD</h3>
+            <div class="price">$55.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, '1 SET OF TRIBE BOARD', 55.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/85.jpg" alt="Product 1">
+            <h3>PACKAGE DEAL 1</h3>
+            <div class="price">$45.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'PACKAGE DEAL 1', 45.99)">Add to Cart</button>
+        </div>
+        <!-- Product 2 -->
+        <div class="product" data-id="2">
+            <img src="PICTURES/86.jpg" alt="Product 2">
+            <h3>PACKAGE DEAL 2</h3>
+            <div class="price">39.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(2, 'PACKAGE DEAL 2', 39.99)">Add to Cart</button>
+        </div>
+        <!-- Product 3 -->
+        <div class="product" data-id="3">
+            <img src="PICTURES/87.jpg" alt="Product 3">
+            <h3>PACKAGE DEAL 3</h3>
+            <div class="price">$29.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(3, 'PACKAGE DEAL 1', 29.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/88.jpg" alt="Product 1">
+            <h3>PACKAGE DEAL 4</h3>
+            <div class="price">$35.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'PACKAGE DEAL 4', 35.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/89.jpg" alt="Product 1">
+            <h3>PACKAGE DEAL 5</h3>
+            <div class="price">$45.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'PACKAGE DEAL 5', 45.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/90.jpg" alt="Product 1">
+            <h3>BEST PACKAGE DEAL 1</h3>
+            <div class="price">$25.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'BEST PACKAGE DEAL 1', 25.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/91.jpg" alt="Product 1">
+            <h3>BEST PACKAGE DEAL 2</h3>
+            <div class="price">$35.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'BEST PACKAGE DEAL 1', 35.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/92.jpg" alt="Product 1">
+            <h3>BEST PACKAGE DEAL 3</h3>
+            <div class="price">$35.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'BEST PACKAGE DEAL 3', 35.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/93.jpg" alt="Product 1">
+            <h3>BEST PACKAGE DEAL 4</h3>
+            <div class="price">55.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'BEST PACKAGE DEAL 4', 55.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/94.jpg" alt="Product 1">
+            <h3>BEST PACKAGE DEAL 5</h3>
+            <div class="price">$20.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'BEST PACKAGE DEAL 5', 20.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/zapchimp.jpeg" alt="Product 1">
+            <h3>ZAP CHIMP BOARD</h3>
+            <div class="price">$45.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'ZAP CMIP BOARD', 45.99)">Add to Cart</button>
+        </div>
+        <!-- Product 2 -->
+        <div class="product" data-id="2">
+            <img src="PICTURES/zapcore.jpeg" alt="Product 2">
+            <h3>ZAP CORE BOARD</h3>
+            <div class="price">$49.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(2, 'ZAP CORE BAORD', 49.99)">Add to Cart</button>
+        </div>
+        <!-- Product 3 -->
+        <div class="product" data-id="3">
+            <img src="PICTURES/zapjoyride.png" alt="Product 3">
+            <h3>ZAP JOYRIDE BOARD</h3>
+            <div class="price">$49.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(3, 'ZAP JOYRIDE BOARD', 49.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/zapfuse.jpg" alt="Product 1">
+            <h3>ZAP FUSE BOARD</h3>
+            <div class="price">$45.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'ZAP FUSE BOARD', 45.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/zapraptor.jpg" alt="Product 1">
+            <h3>ZAP RAPTOR BOARD</h3>
+            <div class="price">$45.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'Product 1', 45.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/95.jpg" alt="Product 1">
+            <h3>PAINT COMBO DEAL 1</h3>
+            <div class="price">$35.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'PAINT COMBO DEAL 1', 35.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/96.jpg" alt="Product 1">
+            <h3>PAINT COMBO DEAL 2</h3>
+            <div class="price">$35.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'PAINT COMBO DEAL 2', 35.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/97.jpg" alt="Product 1">
+            <h3>PAINT COMBO DEAL 3</h3>
+            <div class="price">$35.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'PAINT COMBO DEAL 3', 35.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/98.jpg" alt="Product 1">
+            <h3>PAINT COMBO DEAL 4</h3>
+            <div class="price">$45.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'PAINT COMBO DEAL 4', 45.99)">Add to Cart</button>
+        </div>
+        <div class="product" data-id="1">
+            <img src="PICTURES/99.jpg" alt="Product 1">
+            <h3>PAINT COMBO DEAL 5</h3>
+            <div class="price">$35.99</div>
+            <!-- Button to add the product to the cart -->
+            <button onclick="addToCart(1, 'PAINT COMBO DEAL 5', 35.99)">Add to Cart</button>
+        </div>
+
+    </div>
+
+    <!-- Cart Section (fixed to the right) -->
+    <div class="cart">
+        <h3>Your Cart</h3>
+        <!-- List of cart items will go here -->
+        <ul id="cartItems">
+            <li>No items in cart.</li>
+        </ul>
+        <!-- Display the total price -->
+        <div class="total" id="totalPrice">$0.00</div>
+    </div>
+
+    <script>
+        // Initialize the cart as an empty array
+        let cart = [];
+
+        // Function to add products to the cart
+        function addToCart(id, name, price) {
+            // Create a product object and add it to the cart array
+            const product = { id, name, price };
+            cart.push(product);
+            // Update the cart display after adding the product
+            displayCart();
+        }
+
+        // Function to display the cart items and total
+        function displayCart() {
+            const cartItemsList = document.getElementById("cartItems");
+            cartItemsList.innerHTML = "";  // Clear the existing list
+            let total = 0;
+
+            // Loop through all the items in the cart
+            cart.forEach(item => {
+                const listItem = document.createElement("li");
+                listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+                cartItemsList.appendChild(listItem);
+                total += item.price;  // Add the price of each item to the total
+            });
+
+            // Update the total price display
+            document.getElementById("totalPrice").textContent = `Total: $${total.toFixed(2)}`;
+        }
+
+        // Function to handle the checkout process
+        function checkout() {
+            // Check if the cart is empty
+            if (cart.length === 0) {
+                alert("Your cart is empty.");
+                return;
+            }
+
+            // Display a thank you message with the total price and reset the cart
+            alert(`Thank you for your purchase! Total: $${cart.reduce((total, item) => total + item.price, 0).toFixed(2)}`);
+            cart = [];  // Clear the cart
+            displayCart();  // Update the cart display
+        }
+    </script>
+   
+<div class="bottor">
+<h1>‎</h1>
+    </div>
+    <div class="bottom">
+<h1>‎</h1>
+    </div>
+
+<section class="footer">
+    <h4>About Us</h4>
+    <p>Mati City, known for its stunning Dahican Beach, has emerged as a surfing hotspot in the Philippines, attracting enthusiasts with<br> its ideal waves and vibrant local surf culture, particularly through the efforts of groups like Amihan sa Dahican.</p>
+    <div class="icons">
+        <li><a target="_blank" href=""><i class="fa-brands fa-facebook"></i></a></li>
+        <li><a target="_blank" href=""><i class="fa-brands fa-tiktok"></i></a></li>
+        <li><a target="_blank" href=""><i class="fa-brands fa-instagram"></i></a></li>
+        <li><a target="_blank" href=""><i class="fa-brands fa-linkedin"></i></a></li>
+        <li><a target="_blank" href=""><i class="fa-brands fa-youtube"></i></a></li>
+
+    </div>
+    <p>@SKIMBOARD0922 <br> @SKIMBOARD29</p>
+    <p>Made with <i class="fa-regular fa-heart"></i> by SkimBoard</p>
+    
+</section>
+
+</body>
+</html>
